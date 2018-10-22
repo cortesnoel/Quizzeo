@@ -1,0 +1,209 @@
+@charset "ISO-8859-1";
+
+@keyframes finished {
+    0%   {background-color:#ffa9d1}
+    25%  {background-color:#b0b000}
+    50%  {background-color:#a89efd}
+    75%  {background-color:#9efda1}
+    100% {background-color:#ffa9d1}
+}
+
+@keyframes defeat {
+    0%   {background-color:maroon; top:0px;}
+    100% {background-color:red; top:200px;}
+}
+
+body {
+	background: #ffc6c6;
+	margin: 40px;
+}
+
+th {
+	border: 5px double black;
+	
+	padding: 20px;
+	
+	font-family: cursive;
+	font-size: xx-large;
+	letter-spacing: 1px;
+	color: #63ff76;
+}
+
+td {
+	border: 5px double black;
+	
+	padding: 20px;
+	
+	text-align: center;
+	font-size: x-large;
+	font-weight: bold;
+	color: yellow;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+#correct {
+    background-color: #ffa9d1;
+    position: relative;
+    animation-name: finished;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+#incorrect {
+	background-color: red;
+}
+
+#doubleJeopardy {
+	background-color: yellow;
+	color: navy;
+}
+
+#hidden {
+	display: none;
+	text-align: center;
+}
+
+#hideRandom {
+	display: static;
+	text-align: center;
+}
+
+#reveal {
+	display: static;
+	text-align: center;
+}
+
+#winner {
+    position: relative;
+    animation-name: finished;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    transition: transform 1s ease-in-out;
+}
+
+#winner:hover {
+	transform: rotate(1080deg);
+}
+
+#loser {
+	background-color: maroon;
+	position: relative;
+    animation-name: defeat;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    
+    background: #135771;
+	
+	border: 5px double black;
+	border-collapse: collapse;
+	
+	width: 100%;
+	height: 100%;
+	
+	margin-bottom: 30px;
+}
+
+.hidden {
+	display: none;
+	text-align: center;
+}
+
+.table {
+	background: #135771;
+	
+	border: 5px double black;
+	border-collapse: collapse;
+	
+	width: 100%;
+	height: 100%;
+	
+	margin-bottom: 30px;
+}
+
+.inline {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	margin-top: 20px;
+	margin-right: 60px;
+	margin-left: 60px;
+}
+
+.center {
+	text-align: center;
+}
+
+.marginBottom {
+	margin-bottom: 1.5vw;
+}
+
+.button {
+	background-color: #8080ff;
+	border: 3px solid #000040;
+	border-radius: 12px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	
+	color: #000040;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	
+	padding: 14px 40px;
+	margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.indexH1 {
+	font-family: verdana;
+	font-size: 12vw;
+	font-style: italic;
+	font-weight: bold;
+	
+	color: #36fd28;
+	text-align: center;
+	text-shadow: 8px 8px #fbed43;
+}
+
+.optionsH1 {
+	font-family: verdana;
+	font-size: 8vw;
+	font-style: italic;
+	font-weight: bold;
+	
+	color: #000080;
+	text-align: center;
+	text-shadow: 8px 8px #ff8080;
+}
+
+.spanFont {
+	color: black;
+	font-family: cursive;
+	font-size: 2vw;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.divFont {
+	color: black;
+	font-family: cursive;
+	font-size: 1vw;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.goldBack {
+	background-image: url("css/gold.jpg");
+}
+
+.cottonCandyBack {
+	background-image: url("images/cottonCandy.jpg");
+}
