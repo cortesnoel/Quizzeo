@@ -2,14 +2,14 @@
  *
  */
 
-let test; 
-let category_id = [];
+//let test;
+//let category_id = [];
 let category_name = [];
 let wwwquestion = [];
 let wwwanswer = [];
 let wwwvalue = [];
 
-
+/*
 function callJeopardyAPI(url, sync) {
 	let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -26,8 +26,9 @@ function callJeopardyAPI(url, sync) {
 
 	return this.readyState;
 };
+*/
 
-
+/*
 function getRandomCategories() {
 	let i;
 	let tableCategory = document.getElementsByClassName("categories");
@@ -40,7 +41,7 @@ function getRandomCategories() {
 
 		tableCategory[i].innerHTML = category_name[i];
 	}
-}
+}*/
 
 function getQASets() {
 	let i, e;
@@ -59,8 +60,8 @@ function getQASets() {
 }
 
 (function(){
-	getRandomCategories();
-	getQASets();
+	//getRandomCategories();
+	//getQASets();
 })();
 
 
