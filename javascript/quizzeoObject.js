@@ -2,7 +2,7 @@
  *
  */
 
-let test;
+let test; 
 let category_id = [];
 let category_name = [];
 let wwwquestion = [];
