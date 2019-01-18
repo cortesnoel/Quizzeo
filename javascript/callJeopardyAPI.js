@@ -1,14 +1,16 @@
-let test = [];
+let data = [];
 let category_id = [];
 
 (function(){
   let i;
-  let index = 0;
 
-	getRandomCategories();
-
-  for(i = 0; i < 6; i++) {
-    test.push.apply(callJeopardyAPI(("http://jservice.io/api/category?id=" + category_id[index]), true));
+  if(data !== undefined && data.length !== 0) {
+    return;
+  }else{
+  	getRandomCategories();
+    for(i = 0; i < 6; i++) {
+      callJeopardyAPI("http://jservice.io/api/clues?category=" + category_id[i], true, i);
+    }
   }
 })();
 
@@ -23,12 +25,62 @@ function getRandomCategories() {
   }
 }
 
-function callJeopardyAPI(url, sync) {
-	let xhttp = new XMLHttpRequest();
+function trimArrayLengthToFive(array) {
+  while(array.length > 5) {
+    array.pop();
+  }
+  return array;
+}
+
+function callJeopardyAPI(url, sync, i) {
+  let returnValue = "";
+  let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      console.log("API call: " + this.statusText + "\n\nData returned: " + this.responseText);
-		 test = JSON.parse(this.responseText);
+
+     switch(i) {
+        case 0:
+          data[i] = JSON.parse(this.responseText);
+          if (data[i].length > 5) {
+            trimArrayLengthToFive(data[i]);
+          }
+        break;
+        case 1:
+          data[i] = JSON.parse(this.responseText);
+          if (data[i].length > 5) {
+            trimArrayLengthToFive(data[i]);
+          }
+        break;
+        case 2:
+          data[i] = JSON.parse(this.responseText);
+          if (data[i].length > 5) {
+            trimArrayLengthToFive(data[i]);
+          }
+        break;
+        case 3:
+          data[i] = JSON.parse(this.responseText);
+          if (data[i].length > 5) {
+            trimArrayLengthToFive(data[i]);
+          }
+        break;
+        case 4:
+          data[i] = JSON.parse(this.responseText);
+          if (data[i].length > 5) {
+            trimArrayLengthToFive(data[i]);
+          }
+        break;
+        case 5:
+          data[i] = JSON.parse(this.responseText);
+          if (data[i].length > 5) {
+            trimArrayLengthToFive(data[i]);
+          }
+        break;
+        default:
+        console.log("default switch case");
+      }
+
+     returnValue = this.responseText;
     }
 		else {
 			console.log("readyState = " + this.readyState);
@@ -37,5 +89,5 @@ function callJeopardyAPI(url, sync) {
   xhttp.open("GET", url, sync);
   xhttp.send();
 
-	return test;
-};
+	return returnValue;
+}

@@ -4,7 +4,7 @@
 
 //let test;
 //let category_id = [];
-let category_name = [];
+//let category_name = [];
 let wwwquestion = [];
 let wwwanswer = [];
 let wwwvalue = [];
