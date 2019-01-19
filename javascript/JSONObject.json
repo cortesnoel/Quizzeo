@@ -1,0 +1,205 @@
+/**
+ *This class houses three JSON objects and is for reference; not implemented.
+ */
+
+ /*Start of easy Jeopardy set*/
+const jObject = {
+	"super": [
+		{"question": "What is Supermans home planet called?",
+			"answer": "what is krypton"},
+		{"question": "Which comic book character hails from the fictional nation of Wakanda?",
+			"answer": "who is black panther"},
+		{"question": "What does the DC in DC Comics stand for?",
+			"answer": "what is detective comics"},
+		{"question": "Which city does Green Arrow patrol?",
+			"answer": "what is star city"},
+		{"question": "What is the real name of the Punisher?",
+			"answer": "who is frank castle"}
+	],
+	"geography": [
+		{"question": "The Big Apple",
+			"answer": "what is new york city"},
+		{"question": "The Windy City",
+			"answer": "what is chicago"},
+		{"question": "Sin City",
+			"answer": "what is las vegas"},
+		{"question": "Magic City",
+			"answer": "what is miami"},
+		{"question": "The City of Lights",
+			"answer": "what is paris"}
+	],
+	"math": [
+		{"question": "How many licks does it take to get to the Tootsie Roll center of a Tootsie Pop?",
+			"answer": "what is 3"},
+		{"question": "I am an odd number. Take away one letter and I become even. What number am I?",
+			"answer": "what is 7"},
+		{"question": "If 1=5, 2=10, 3=15, 4=20, 5 equals to what?",
+			"answer": "what is 1"},
+		{"question": "What is the derivative of 5x?",
+			"answer": "what is 5"},
+		{"question": "How many eggs can you put in an empty basket six inches in diameter?",
+			"answer": "what is 1"}
+	],
+	"animal": [
+		{"question": "What do you call a baby giraffe?",
+			"answer": "what is a calf"},
+		{"question": "What is the largest type of big cat in the world?",
+			"answer": "what is a tiger"},
+		{"question": "What do you call a female elephant?",
+			"answer": "what is a cow"},
+		{"question": "How many pairs of wings does a bee have?",
+			"answer": "what is 2"},
+		{"question": "What type of animal is the largest primate in the world?",
+			"answer": "what is a gorilla"}
+	],
+	"movie": [
+		{"question": "They may take our lives, but theyll never take our freedom!",
+			"answer": "what is braveheart"},
+		{"question": "Ill get you, my pretty, and your little dog, too!",
+			"answer": "what is the wizard of oz"},
+		{"question": "Just keep swimming.",
+			"answer": "what is finding nemo"},
+		{"question": "I drink your milkshake!",
+			"answer": "what is there will be blood"},
+		{"question": "Im going to make him an offer he cant refuse.",
+			"answer": "what is the godfather"}
+	],
+	"music": [
+		{"question": "Rah, rah, ah, ah, ah, roma, roma, ma. Gaga, ooh, la, la... want your bad romance!",
+			"answer": "what is bad romance"},
+		{"question": "To the left, to the left, everything you own in the box to the left",
+			"answer": "what is irreplaceable"},
+		{"question": "I cant wait til I get you on the floor good-looking",
+			"answer": "what is suit and tie"},
+		{"question": "Theres vomit on his sweater already, moms spaghetti, hes nervous",
+			"answer": "what is lose yourself"},
+		{"question": "Ima take your grandpas style, Ima take your grandpas style. No, for real, ask your grandpa. Can I have his hand-me-downs?",
+			"answer": "what is thrift shop"}
+	]
+};
+/*End of easy Jeopardy set*/
+
+/*Start of hard Jeopardy set*/
+const jObject2 = {
+	"history": [
+		{"question": "What year was the US Declaration of Independence signed?",
+			"answer": "what is 1776"},
+		{"question": "What year marked the end of WWII?",
+			"answer": "what is 1945"},
+		{"question": "Which Renaissance artist painted The School of Athens?",
+			"answer": "who is raphael"},
+		{"question": "What army did Napoleon Bonaparte meet during the French invasion of Cairo, Egypt?",
+			"answer": "who is the mamelukes"},
+		{"question": "Who was Alexander the Greats childhood instructor?",
+			"answer": "who is aristotle"}
+	],
+	"geography": [
+		{"question": "What American state hosts the largest trees in the world?",
+			"answer": "what is california"},
+		{"question": "What is the largest desert in the world?",
+			"answer": "what is the sahara desert"},
+		{"question": "What city hosts the largest population in the world?",
+			"answer": "what is tokyo"},
+		{"question": "What country hosts the largest pyramid in the world?",
+			"answer": "what is mexico"},
+		{"question": "What country hosts the largest gold mine in the world?",
+			"answer": "what is indonesia"}
+	],
+	"math": [
+		{"question": "What is the number of degrees of arc in a circle?",
+			"answer": "what is 360"},
+		{"question": "What is the sum of the measures in degrees of the angles of a triangle?",
+			"answer": "what is 180"},
+		{"question": "What is the derivative of: (42x)?",
+			"answer": "what is 42"},
+		{"question": "How many centimeters are in a cubic meter?",
+			"answer": "what is 1,000,000"},
+		{"question": "What is the cube root of 216?",
+			"answer": "what is 6"}
+	],
+	"literature": [
+		{"question": "Marley was dead as a doornail",
+			"answer": "what is a christmas carol"},
+		{"question": "I cant go back to yesterday because I was a different person then",
+			"answer": "what is alice in wonderland"},
+		{"question": "It sounds plausible enough tonight, but wait until tomorrow. Wait for the common sense of the morning",
+			"answer": "what is the time machine"},
+		{"question": "Then something Tookish woke up inside him, and he wished to go and see the great mountains, and hear the pine-trees and the waterfalls, and explore the caves, and wear a sword instead of a walking-stick",
+			"answer": "what is the hobbit"},
+		{"question": "Not all those who wander are lost",
+			"answer": "what is the lord of the rings"}
+	],
+	"poetry": [
+		{"question": "Shall I compare thee to a summers day? Thou art more lovely and more temperate",
+			"answer": "who is william shakespeare"},
+		{"question": "I have measured out my life with coffee spoons",
+			"answer": "who is t.s. eliot"},
+		{"question": "Im Nobody! Who are you? Are you Nobody too?",
+			"answer": "who is emily dickinson"},
+		{"question": "Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light",
+			"answer": "who is dylan thomas"},
+		{"question": "O Captain! my Captain! our fearful trip is done, the ship has weatherd every rack, the prize we sought is won",
+			"answer": "who is walt whitman"}
+	],
+	"quote": [
+		{"question": "To live is the rarest thing in the world. Most people exist, that is all",
+			"answer": "who is oscar wilde"},
+		{"question": "Get busy living or get busy dying",
+			"answer": "who is stephen king"},
+		{"question": "A room without books is like a body without a soul",
+			"answer": "who is marcus tullius cicero"},
+		{"question": "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart",
+			"answer": "who is helen keller"},
+		{"question": "If you tell the truth, you dont have to remember anything",
+			"answer": "who is mark twain"}
+	]
+};
+/*End of hard Jeopardy set*/
+
+
+/*Practice JSON object below for debugging*/
+
+const jObject3 = {
+	"history": [
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"}
+	],
+	"geography": [
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"}
+	],
+	"math": [
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"}
+	],
+	"literature": [
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"}
+	],
+	"poetry": [
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"}
+	],
+	"quote": [
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"},
+		{"question": "q","answer": "a"}
+	]
+};

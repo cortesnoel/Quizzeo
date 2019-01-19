@@ -1,4 +1,5 @@
 /*
+*This class stages API data (cannot be accessed over HTTPS -- use JSON).
 *This Class utilizes Session Storage.
 */
 
@@ -59,17 +60,7 @@ function stageAnswers() {
 }
 
 function stageValues() {
-  //let valueSet = [100, 200, 300, 400, 500];
-  //let i;
-
-/*  for(i = 0; i < data[i].length; i++) {
-      valueSet.push(data[i][i].value);
-      if(valueSet[i] === null) {
-        valueSet[i] = ((i+1)*100);
-      } else if(valueSet[i] == valueSet[i-1] || valueSet[i] == valueSet[i+1]) {
-        valueSet[i] = ((i+1)*100);
-      }
-  }*/
+  let i;
 
   for(i = 0; i < data[i].length; i++) {
     valueSet.push((i+1)*100);
