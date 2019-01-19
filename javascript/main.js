@@ -1,11 +1,11 @@
 /**
- * 
+ *This class holds all the business logic.
  */
 
 
-	
+
 /*Start: JS for jeopardy.jsp*/
-	
+
 	let bgMusic = document.getElementById("bgMusic");
 		document.getElementById('bgMusic').addEventListener("ended", expiredTurn, true);
 	let djMusic = document.getElementById("djMusic");
@@ -14,8 +14,8 @@
 	let oFortuna = document.getElementById("oFortuna");
 	let requiem = document.getElementById("requiem");
 
-	//let setId = document.getElementById("input");	
-	let setId = document.getElementsByClassName("input");	
+	//let setId = document.getElementById("input");
+	let setId = document.getElementsByClassName("input");
 	let random = Math.floor(Math.random() * 6);
 	let turn = 0;
 	let turnMax = (function hideTables() {
@@ -35,14 +35,14 @@
 	let winner = null;
 
 	//let tableTurn = document.getElementsByClassName("table");
-	
+
 	turnColor();
-	
+
 	function playOFortuna() {
 		oFortuna.play();
 	}
 	function pauseOFortuna() {
-		oFortuna.pause(); 
+		oFortuna.pause();
 	}
 	function playBgMusic() {
 		bgMusic.play();
@@ -71,8 +71,8 @@
 	function playFinalMusic() {
 		requiem.play();
 	}
-	
-	
+
+
 	function randomFirst(event) {
 		let valueForRandom = document.getElementById("inputRandom");
 		let divRandom = document.getElementById("hideRandom");
@@ -95,7 +95,7 @@
 			alert("Wrong! Next team, please guess a number (0-5)!");
 		}
 	}
-			
+
 	function change(event,address) {
 		let target = event.target || event.srcElement;
 		let passAddress = address;
@@ -119,10 +119,10 @@
 					stagingQuestion(target,passAddress);
 				}
 			}
-	
+
 		}
 	}
-	
+
 	function doubleJeopardy(target,passAddress) {
 		playDjMusic();
 		target.innerHTML = "Double Jeopardy!";
@@ -131,50 +131,50 @@
 		console.log("doubleJeopardy() executed!");
 		window.setTimeout(stagingQuestion,5500,target,passAddress);
 	}
-	
+
 	function stagingQuestion(target,address) {
 		let level1 = 100;
 		let level2 = 200;
 		let level3 = 300;
 		let level4 = 400;
 		let level5 = 500;
-		
+
 		playBgMusic();
-		
-		console.log(address.Question);
+
+		console.log(sessionStorage.getItem("question" + address));
 		if(target.parentElement.id=="doubleJeopardy") {
 			target.parentElement.removeAttribute("id");
 		}
 		if(target.innerHTML=="Double Jeopardy!" || target.innerHTML==level1 || target.innerHTML==level2 ||
-		target.innerHTML==level3 || target.innerHTML==level4 || 
+		target.innerHTML==level3 || target.innerHTML==level4 ||
 		target.innerHTML==level5) {
-			target.innerHTML = address.Question;
-			target.removeAttribute("href")
-			setId[0].setAttribute("id", address.Answer);
+			target.innerHTML = sessionStorage.getItem("question" + address);
+			target.removeAttribute("href");
+			setId[0].setAttribute("id", sessionStorage.getItem("answer" + address));
 			target.setAttribute("id", "temp"+String(++bugFixer));
 			console.log(target.id);
 			setId[0].setAttribute("name", target.id);
 			setId[0].parentElement.parentElement.parentElement.id = "reveal";
 			console.log(setId[0].id + setId[0].name);
-			
+
 			//if(window.setTimeout(endBgMusic,(38*1000)));
-		} 
+		}
 	}
-	
-	
-	
-	
+
+
+
+
 	function answer(event) {
 		let target = document.getElementById(setId[0].name);
 		let winning = document.getElementsByClassName("teamPoints");
 		console.log(target);
-		
-		if(setId[0].id == setId[0].value.toLowerCase()) {
-			pauseBgMusic(); 
+
+		if(setId[0].id.toLowerCase() == setId[0].value.toLowerCase()) {
+			pauseBgMusic();
 			playWinMusic();
 			window.setTimeout(loadWinMusic,1000);
 			loadBgMusic();
-			
+
 			console.log(setId[0].id);
 			target.innerHTML = setId[0].id.toUpperCase();
 			target.parentElement.setAttribute("id", "correct");
@@ -182,7 +182,7 @@
 			target.removeAttribute("id");
 			finalWrong = 0;
 			winning[turn].innerHTML = Number(winning[turn].innerHTML) + points;
-			
+
 			gameOver = gameOver - 1;
 			if(gameOver==0) {
 				window.setTimeout(finishGame,2000);
@@ -206,7 +206,7 @@
 				setId[0].parentElement.parentElement.parentElement.id = "hidden";
 				target.innerHTML = setId[0].id.toUpperCase();
 				target.parentElement.setAttribute("id", "incorrect");
-				
+
 				gameOver = gameOver - 1;
 				if(gameOver==0) {
 					window.setTimeout(finishGame,2000);
@@ -221,10 +221,10 @@
 			setId[0].value = "";
 		}
 	}
-	
+
 	(function hideTables() {
 		let tables = document.getElementsByClassName("teamName");
-		
+
 		for(i=0;i<tables.length;i++) {
 			if(sessionStorage.getItem("storageID"+String(i))!="") {
 				console.log("executed: " + (sessionStorage.getItem("storageID"+String(i))));
@@ -235,7 +235,7 @@
 			}
 		}
 	}());
-	
+
 	function turnColor() {
 		let tableTurn = document.getElementsByClassName("teamName");
 
@@ -246,31 +246,31 @@
 		}
 		tableTurn[turn].style.color = "#ff7990";
 	}
-	
-	function expiredTurn() { 
+
+	function expiredTurn() {
 		console.log("Expired turn method executed");
 		console.log(setId[0].value);
 		setId[0].nextElementSibling.click();
 	}
-	
+
 	function finishGame() {
 		let winningPoints = document.getElementsByClassName("teamPoints");
 		let winningTeam = document.getElementsByClassName("teamName");
 		let mainTable = document.getElementById("mainTable");
 
-		
+
 		/*for(i=0;i<turnMax;i++) {
 			if(i==0){
 				if(Number(winning[i].innerHTML)>(9000/turnMax) && Number(winning[i].innerHTML)>)
 			}else if(i==1) {
-				
+
 			}else if(i==2) {
-				
+
 			}else{
-				
+
 			}
 		}*/
-		
+
 		if(turnMax==0) {
 			winner = winningTeam[0];
 		}else if(turnMax==1) {
@@ -280,25 +280,25 @@
 				winner = winningTeam[1];
 			}
 		}else if(turnMax==2) {
-			if(Number(winningPoints[0].innerHTML)>Number(winningPoints[turnMax].innerHTML) && 
+			if(Number(winningPoints[0].innerHTML)>Number(winningPoints[turnMax].innerHTML) &&
 			Number(winningPoints[0].innerHTML)>Number(winningPoints[1].innerHTML)) {
 				winner = winningTeam[0];
-			} else if(Number(winningPoints[1].innerHTML)>Number(winningPoints[turnMax].innerHTML) && 
+			} else if(Number(winningPoints[1].innerHTML)>Number(winningPoints[turnMax].innerHTML) &&
 			Number(winningPoints[1].innerHTML)>Number(winningPoints[0].innerHTML)) {
 				winner = winningTeam[1];
 			} else {
 				winner = winningTeam[turnMax];
 			}
 		}else {
-			if(Number(winningPoints[0].innerHTML)>Number(winningPoints[turnMax].innerHTML) && 
+			if(Number(winningPoints[0].innerHTML)>Number(winningPoints[turnMax].innerHTML) &&
 			Number(winningPoints[0].innerHTML)>Number(winningPoints[1].innerHTML) &&
 			Number(winningPoints[0].innerHTML)>Number(winningPoints[2].innerHTML)) {
 				winner = winningTeam[0];
-			} else if(Number(winningPoints[1].innerHTML)>Number(winningPoints[turnMax].innerHTML) && 
+			} else if(Number(winningPoints[1].innerHTML)>Number(winningPoints[turnMax].innerHTML) &&
 			Number(winningPoints[1].innerHTML)>Number(winningPoints[0].innerHTML) &&
 			Number(winningPoints[1].innerHTML)>Number(winningPoints[2].innerHTML)) {
 				winner = winningTeam[1];
-			} else if(Number(winningPoints[2].innerHTML)>Number(winningPoints[turnMax].innerHTML) && 
+			} else if(Number(winningPoints[2].innerHTML)>Number(winningPoints[turnMax].innerHTML) &&
 			Number(winningPoints[2].innerHTML)>Number(winningPoints[0].innerHTML) &&
 			Number(winningPoints[2].innerHTML)>Number(winningPoints[1].innerHTML)) {
 				winner = winningTeam[2];

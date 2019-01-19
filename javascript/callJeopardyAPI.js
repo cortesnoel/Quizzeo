@@ -1,3 +1,7 @@
+/*
+*
+*/
+
 let data = [];
 let category_id = [];
 
@@ -33,61 +37,20 @@ function trimArrayLengthToFive(array) {
 }
 
 function callJeopardyAPI(url, sync, i) {
-  let returnValue = "";
   let xhttp = new XMLHttpRequest();
+
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      console.log("API call: " + this.statusText + "\n\nData returned: " + this.responseText);
-
-     switch(i) {
-        case 0:
-          data[i] = JSON.parse(this.responseText);
-          if (data[i].length > 5) {
-            trimArrayLengthToFive(data[i]);
-          }
-        break;
-        case 1:
-          data[i] = JSON.parse(this.responseText);
-          if (data[i].length > 5) {
-            trimArrayLengthToFive(data[i]);
-          }
-        break;
-        case 2:
-          data[i] = JSON.parse(this.responseText);
-          if (data[i].length > 5) {
-            trimArrayLengthToFive(data[i]);
-          }
-        break;
-        case 3:
-          data[i] = JSON.parse(this.responseText);
-          if (data[i].length > 5) {
-            trimArrayLengthToFive(data[i]);
-          }
-        break;
-        case 4:
-          data[i] = JSON.parse(this.responseText);
-          if (data[i].length > 5) {
-            trimArrayLengthToFive(data[i]);
-          }
-        break;
-        case 5:
-          data[i] = JSON.parse(this.responseText);
-          if (data[i].length > 5) {
-            trimArrayLengthToFive(data[i]);
-          }
-        break;
-        default:
-        console.log("default switch case");
-      }
-
-     returnValue = this.responseText;
+     data[i] = JSON.parse(this.responseText);
+     if (data[i].length > 5) {
+       trimArrayLengthToFive(data[i]);
+     }
     }
 		else {
 			console.log("readyState = " + this.readyState);
 		}
-  };
+  }
   xhttp.open("GET", url, sync);
   xhttp.send();
-
-	return returnValue;
 }

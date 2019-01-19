@@ -2,74 +2,6 @@
  *
  */
 
-//let test;
-//let category_id = [];
-//let category_name = [];
-let wwwquestion = [];
-let wwwanswer = [];
-let wwwvalue = [];
-
-/*
-function callJeopardyAPI(url, sync) {
-	let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     console.log("API call: " + this.statusText + "\n\nData returned: " + this.responseText);
-		 test = JSON.parse(this.responseText);
-    }
-		else {
-			console.log("readyState = " + this.readyState);
-		}
-  };
-  xhttp.open("GET", url, sync);
-  xhttp.send();
-
-	return this.readyState;
-};
-*/
-
-/*
-function getRandomCategories() {
-	let i;
-	let tableCategory = document.getElementsByClassName("categories");
-
-	for(i = 0; i < 6; i++) {
-		callJeopardyAPI("http://jservice.io/api/random", false);
-		console.log("in getRandomCategories() loop");
-		category_id.push(test[0].category_id);
-		category_name.push(test[0].category.title);
-
-		tableCategory[i].innerHTML = category_name[i];
-	}
-}*/
-
-function getQASets() {
-	let i, e;
-	let set = 0;
-
-	for(i = 0; i < 6; i++) {
-		callJeopardyAPI("http://jservice.io/api/category?id=" + category_id[i], false);
-		console.log("in getQASets() loop iteration: " + i);
-		for(e = 0; e < 5; e++) {
-			wwwquestion.push(test.clues[e].question);
-			wwwanswer.push(test.clues[e].answer);
-			wwwvalue.push(test.clues[e].answer);
-			set++;
-		}
-	}
-}
-
-(function(){
-	//getRandomCategories();
-	//getQASets();
-})();
-
-
-
-
-
-
-/*
 const jObject = {
 	"super": [
 		{"Question": "What is Supermans home planet called?",
@@ -144,7 +76,6 @@ const jObject = {
 			"Answer": "what is thrift shop"}
 	]
 };
-*/
 
 /*Start of hard Jeopardy set*/
 /*const jObject = {
