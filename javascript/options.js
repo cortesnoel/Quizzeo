@@ -1,14 +1,14 @@
 /**
- *
+ * 
  */
 
 /*Start: JS for options.jsp*/
 	function chooseTeams(event) {
-		var target = event.target || event.srcElement;
-		//var grandTarget = target.parentElement.parentElement;
-		var hide = document.getElementsByClassName("teams");
+		let target = event.target || event.srcElement;
+		//let grandTarget = target.parentElement.parentElement;
+		let hide = document.getElementsByClassName("teams");
 		console.log("1st");
-
+		
 		for(i=0;i<hide.length;i++) {
 			console.log("2nd");
 
@@ -23,25 +23,25 @@
 		switch(target.id) {
 			case "0":
 				hide[0].classList.remove("hidden");
-				break;
+				break;	
 			case "1":
 				hide[0].classList.remove("hidden");
 				hide[1].classList.remove("hidden");
-				break;
+				break;		
 			case "2":
 				hide[0].classList.remove("hidden");
 				hide[1].classList.remove("hidden");
 				hide[2].classList.remove("hidden");
-				break;
+				break;	
 			case "3":
 				hide[0].classList.remove("hidden");
 				hide[1].classList.remove("hidden");
 				hide[2].classList.remove("hidden");
 				hide[3].classList.remove("hidden");
-				break;
+				break;			
 		}
 	}
-
+	
 	function checkWebStorage() {
 		if (typeof(Storage) !== "undefined") {
 		    console.log("Code for localStorage/sessionStorage");
@@ -49,13 +49,13 @@
 		    console.log("Sorry! No Web Storage support..");
 		}
 	}
-
+	
 	function moveToStorage(event) {
-		var storage = document.getElementsByClassName("input");
+		let storage = document.getElementsByClassName("input");
 		checkWebStorage();
-
+		
 		for(i=0;i<storage.length;i++) {
-			var storageID = "storageID" + String(i);
+			let storageID = "storageID" + String(i);
 			console.log(storageID);
 			sessionStorage.setItem(storageID, storage[i].value);
 		}
